@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update users</title>
+</head>
+<body>
+<div>
+    <form method="POST" th:action="@{/admin/edit/{id}(id=${user.getId()})}" th:object="${user}">
+        <label for="name">Изменить имя: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <label for="lastname">Изменить фамилию: </label>
+        <input type="text" th:field="*{lastName}" id="lastname"/>
+        <label for="email">Изменить email: </label>
+        <input type="text" th:field="*{email}" id="email"/>
+        <input type="submit" value="Изменить"/>
+    </form>
+    <br/>
+    <form th:action="@{/admin/admin}">
+        <input type="submit" value="Назад">
+    </form>
+</div>
+<br/>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+</body>
+</html>
